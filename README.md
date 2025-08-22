@@ -20,3 +20,18 @@ Bonus (optional):
 - Categories supported
 - CSV persistence (loads on start, saves on quit)
 - Currency formatted to 2 decimals
+
+### ✅ Features of GUI:
+
+- Form inputs (Description, Amount, Category)
+- Table with scroll to view all expenses
+- Add Expense button inserts into table instantly
+- Show Total button pops up a summary
+- Export CSV button saves all data
+- Auto-load previous CSV on startup
+
+### ✅ Improvements
+
+- Categories now selected via dropdown menu (Food, Travel, Bills, Shopping, Health, Entertainment, Other)
+- Default value is General
+- Auto-resets dropdown after adding an expense

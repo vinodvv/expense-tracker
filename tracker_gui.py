@@ -90,14 +90,21 @@ entry_amount = tk.Entry(frame_input, width=10)
 entry_amount.grid(row=0, column=3, padx=5)
 
 tk.Label(frame_input, text="Category").grid(row=0, column=4, padx=5)
-entry_category = tk.Entry(frame_input, width=15)
-entry_category.grid(row=0, column=5, padx=5)
+
+# Dropdown for categories
+categories = ["Food", "Travel", "Bills", "Shopping", "Health", "Entertainment", "Other"]
+category_combo = ttk.Combobox(frame_input, values=categories,state="readonly", width=15)
+category_combo.set("General")  # Default
+category_combo.grid(row=0, column=5, padx=5)
+
+# entry_category = tk.Entry(frame_input, width=15)
+# entry_category.grid(row=0, column=5, padx=5)
 
 
 def on_add():
     desc = entry_desc.get().strip()
     amount = entry_amount.get().strip()
-    category = entry_category.get().strip()
+    category = category_combo.get().strip()
 
     if not desc or not amount:
         messagebox.showwarning("Missing Info", "Please enter description and amount")
@@ -106,7 +113,7 @@ def on_add():
     if add_expense(desc, amount, category):
         entry_desc.delete(0, tk.END)
         entry_amount.delete(0, tk.END)
-        entry_category.delete(0, tk.END)
+        category_combo.set("General")
 
 
 btn_add = tk.Button(frame_input, text="Add Expense", command=on_add)
